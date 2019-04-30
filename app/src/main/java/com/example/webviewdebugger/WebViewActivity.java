@@ -21,21 +21,21 @@ public class WebViewActivity extends Activity {
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setDomStorageEnabled(true);
         mWebView.setWebViewClient(new WebViewClient());
-        mWebView.loadUrl("https://www.facebook.com");
 
-        String newUrl = "https://www.facebook.com";
+        String urlString = "https://www.google.com";
         Bundle extras = getIntent().getExtras();
         if (extras!=null) {
-            newUrl = (extras.getString("YO") != null) ? extras.getString("YO") : newUrl;
-        }
-        if (!newUrl.contains("www.")) {
-            newUrl = "www." + newUrl;
-        }
-        if (!newUrl.contains("http://") && !newUrl.contains("https://")) {
-            newUrl = "https://" + newUrl;
+            urlString = (extras.getString(Constants.URL_KEY) != null) ? extras.getString(Constants.URL_KEY) : urlString;
         }
 
-        mWebView.loadUrl(newUrl);
+        if(!urlString.startsWith("www.") && !urlString.startsWith("http://") && !urlString.startsWith("https://")) {
+            urlString = "www." + urlString;
+        }
+        if(!urlString.startsWith("http://") && !urlString.startsWith("https://")){
+            urlString = "http://" + urlString;
+        }
+
+        mWebView.loadUrl(urlString);
     }
 
     @Override

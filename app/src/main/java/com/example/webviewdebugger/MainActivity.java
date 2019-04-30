@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,10 +30,14 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text = editText.getText().toString();
-                Intent intent = new Intent(context, WebViewActivity.class);
-                intent.putExtra("YO", text);
-                startActivity(intent);
+                String url = editText.getText().toString();
+                if (Patterns.WEB_URL.matcher(url).matches()) {
+                    Intent intent = new Intent(context, WebViewActivity.class);
+                    intent.putExtra(Constants.URL_KEY, url);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplication(), "Invalid URL", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

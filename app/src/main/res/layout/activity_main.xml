@@ -15,17 +15,11 @@
         android:textSize="25sp"
         android:text="Enter URL you'd like to enter"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:text="No need for http/s or www"/>
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:id="@+id/editText"
+        android:textAlignment="center"
         android:inputType="textWebEmailAddress"
         android:maxLines="1"/>
 
