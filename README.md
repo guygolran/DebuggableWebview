@@ -1,3 +1,8 @@
-### DebuggableWebview
+# DebuggableWebview
 
-This is a tool for debugging websites sessions in Android WebViewActivity, using Chrome devtools.
+This is a tool for remote debugging in Android applications, using Chrome devtools.
+This application enables inspection / debugging on Android WebViewActivity.
+
+### Usage
+* Open the app, enter any URL and click "GO!"
+* Set up remote debugging (https://developers.google.com/web/tools/chrome-devtools/remote-debugging/)
